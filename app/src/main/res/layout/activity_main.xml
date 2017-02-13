@@ -13,8 +13,7 @@
     <com.shevart.customview.customviews.UserProgressCircle
         android:id="@+id/progressCircle"
         android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:visibility="gone" />
+        android:layout_height="200dp" />
 
     <com.shevart.customview.customviews.RatingStarsView
         android:layout_width="300dp"

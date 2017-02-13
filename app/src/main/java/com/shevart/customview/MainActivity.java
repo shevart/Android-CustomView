@@ -1,22 +1,43 @@
 package com.shevart.customview;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.os.Handler;
+import android.os.Looper;
 
 import com.shevart.customview.customviews.UserProgressCircle;
 
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
+    private Handler handler = new Handler(Looper.getMainLooper());
+
+    private UserProgressCircle userProgressCircle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        userProgressCircle = (UserProgressCircle) findViewById(R.id.progressCircle);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        generateUserProgressCircleFakeUpdateEvents();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        handler.removeCallbacksAndMessages(null);
+    }
+
+    private void generateUserProgressCircleFakeUpdateEvents() {
         int delay = 0;
         for (int i = 0; i < 35; i++) {
-            findViewById(R.id.activity_main).postDelayed(new Runnable() {
+            handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     updateProgress(1 + new Random().nextInt(98));
@@ -27,6 +48,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateProgress(int progress) {
-        ((UserProgressCircle) findViewById(R.id.progressCircle)).setCurrentValue(progress, true);
+        userProgressCircle.setCurrentValue(progress, true);
     }
 }
