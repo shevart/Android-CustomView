@@ -1,0 +1,15 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="active_indicator_side_size">12dp</dimen>
+    <dimen name="no_active_indicator_side_size">8dp</dimen>
+    <dimen name="vp_indicators_padding">30dp</dimen>
+
+    <dimen name="user_progress_circle_grey_stroke">19dp</dimen>
+    <dimen name="user_progress_circle_gradient_stroke">11dp</dimen>
+
+    <dimen name="rating_star_width">22dp</dimen>
+    <dimen name="rating_star_padding">20dp</dimen>
+</resources>
