@@ -11,7 +11,6 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     private Handler handler = new Handler(Looper.getMainLooper());
-
     private UserProgressCircle userProgressCircle;
 
     @Override
