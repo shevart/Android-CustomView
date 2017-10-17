@@ -46,7 +46,6 @@ public class SimpleCircleProgressBar extends BaseCircleView {
         circleActiveIndicatorPaint.setStrokeWidth(circleStrokeWidth);
         circleActiveIndicatorPaint.setAntiAlias(true);
         circleActiveIndicatorPaint.setStrokeCap(Paint.Cap.ROUND);
-
 //        circleActiveIndicatorPaint.setPathEffect(new DashPathEffect(new float[]{5, 15}, 0)); add to style?
     }
 
