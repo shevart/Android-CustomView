@@ -11,7 +11,7 @@ import android.view.View;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings({"WeakerAccess", "unused"})
 public abstract class BaseCircleView extends View {
     public static final int CIRCLE_INDICATOR_TOP = 1;
     public static final int CIRCLE_INDICATOR_RIGHT = 2;

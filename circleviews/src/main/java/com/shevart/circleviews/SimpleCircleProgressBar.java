@@ -3,6 +3,7 @@ package com.shevart.circleviews;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
@@ -12,7 +13,7 @@ import com.shevart.circleviews.utils.UiUtil;
 public class SimpleCircleProgressBar extends BaseCircleView {
     private RectF circleRectF;
     private Paint circleIndicatorSubstratePaint;
-    private Paint circleActiveIndicatorPaint;
+    protected Paint circleActiveIndicatorPaint;
     private float circleStrokeWidth;
 
     public SimpleCircleProgressBar(Context context) {
@@ -45,6 +46,8 @@ public class SimpleCircleProgressBar extends BaseCircleView {
         circleActiveIndicatorPaint.setStrokeWidth(circleStrokeWidth);
         circleActiveIndicatorPaint.setAntiAlias(true);
         circleActiveIndicatorPaint.setStrokeCap(Paint.Cap.ROUND);
+
+//        circleActiveIndicatorPaint.setPathEffect(new DashPathEffect(new float[]{5, 15}, 0)); add to style?
     }
 
     @SuppressWarnings("SuspiciousNameCombination")
@@ -59,7 +62,6 @@ public class SimpleCircleProgressBar extends BaseCircleView {
         // draw active circle indicator
         canvas.save();
         rotateCanvasForCircleIndicator(canvas, circleIndicatorStart);
-
         canvas.drawArc(circleRectF, 0, calculateDegreesForArc(100, 75), false, circleActiveIndicatorPaint);
         canvas.restore();
     }
