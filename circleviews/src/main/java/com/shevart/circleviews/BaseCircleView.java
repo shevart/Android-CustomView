@@ -76,4 +76,10 @@ public abstract class BaseCircleView extends View {
                 getWidth() / 2,
                 getHeight() / 2);
     }
+
+    @SuppressWarnings("UnnecessaryLocalVariable")
+    protected float calculateDegreesForArc(float maxValue, float currentValue) {
+        float degrees = (360f / maxValue * currentValue);
+        return degrees;
+    }
 }

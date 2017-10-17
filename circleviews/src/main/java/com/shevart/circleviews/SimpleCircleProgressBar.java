@@ -11,6 +11,7 @@ import com.shevart.circleviews.utils.UiUtil;
 
 public class SimpleCircleProgressBar extends BaseCircleView {
     private RectF circleRectF;
+    private Paint circleIndicatorSubstratePaint;
     private Paint circleActiveIndicatorPaint;
     private float circleStrokeWidth;
 
@@ -29,8 +30,15 @@ public class SimpleCircleProgressBar extends BaseCircleView {
     protected void init() {
         circleRectF = new RectF();
         circleActiveIndicatorPaint = new Paint();
+        circleIndicatorSubstratePaint = new Paint();
 
         circleStrokeWidth = UiUtil.convertDpToPixel(10, getContext());
+
+        circleIndicatorSubstratePaint.setColor(Color.GRAY);
+        circleIndicatorSubstratePaint.setStyle(Paint.Style.STROKE);
+        circleIndicatorSubstratePaint.setStrokeWidth(circleStrokeWidth);
+        circleIndicatorSubstratePaint.setAntiAlias(true);
+        circleIndicatorSubstratePaint.setStrokeCap(Paint.Cap.ROUND);
 
         circleActiveIndicatorPaint.setColor(Color.YELLOW);
         circleActiveIndicatorPaint.setStyle(Paint.Style.STROKE);
@@ -42,13 +50,17 @@ public class SimpleCircleProgressBar extends BaseCircleView {
     @SuppressWarnings("SuspiciousNameCombination")
     @Override
     protected void onDraw(Canvas canvas) {
+        // set circles rectF
+        circleRectF.set(circleStrokeWidth, circleStrokeWidth,
+                getWidth() - circleStrokeWidth, getHeight() - circleStrokeWidth);
+        // draw substrate circle
+        canvas.drawArc(circleRectF, 0, 360, false, circleIndicatorSubstratePaint);
 
         // draw active circle indicator
         canvas.save();
-        rotateCanvasForCircleIndicator(canvas, CIRCLE_INDICATOR_BOTTOM);
-        circleRectF.set(circleStrokeWidth, circleStrokeWidth,
-                getWidth() - circleStrokeWidth, getHeight() - circleStrokeWidth);
-        canvas.drawArc(circleRectF, 0, 275, false, circleActiveIndicatorPaint);
+        rotateCanvasForCircleIndicator(canvas, circleIndicatorStart);
+
+        canvas.drawArc(circleRectF, 0, calculateDegreesForArc(100, 75), false, circleActiveIndicatorPaint);
         canvas.restore();
     }
 }
