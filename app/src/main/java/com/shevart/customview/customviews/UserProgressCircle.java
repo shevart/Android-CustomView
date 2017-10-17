@@ -150,7 +150,8 @@ public class UserProgressCircle extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (userProgressGradient == null) initUserProgressGradient();
+        if (userProgressGradient == null)
+            initUserProgressGradient();
 
         greyCircleRectF.set(greyCircleWidth, greyCircleWidth, getWidth() - greyCircleWidth, getHeight() - greyCircleWidth);
         canvas.drawArc(greyCircleRectF, 0, 360, false, paintGreyCircle);
@@ -172,6 +173,7 @@ public class UserProgressCircle extends View {
         canvas.drawCircle(getWidth() / 2, getHeight() - greyCircleWidth, greyCircleWidth / 2, paintHintPoint);
     }
 
+    @SuppressWarnings("UnnecessaryLocalVariable")
     private float calculateDegreesForArc() {
         float degrees = (360f / maxValue * currentValue);
         return degrees;
