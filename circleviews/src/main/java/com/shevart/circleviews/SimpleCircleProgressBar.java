@@ -6,39 +6,37 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.view.View;
 
 import com.shevart.circleviews.utils.UiUtil;
 
-public class SimpleCircleProgressBar extends View {
-    private RectF circleRectF = new RectF();
-    private Paint circlePaint = new Paint();
+public class SimpleCircleProgressBar extends BaseCircleView {
+    private RectF circleRectF;
+    private Paint circleActiveIndicatorPaint;
     private float circleStrokeWidth;
 
     public SimpleCircleProgressBar(Context context) {
         super(context);
-        init();
     }
 
     public SimpleCircleProgressBar(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
     }
 
     public SimpleCircleProgressBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
-    private void init() {
+    protected void init() {
+        circleRectF = new RectF();
+        circleActiveIndicatorPaint = new Paint();
+
         circleStrokeWidth = UiUtil.convertDpToPixel(10, getContext());
 
-        circlePaint.setColor(Color.YELLOW);
-        circlePaint.setStyle(Paint.Style.STROKE);
-        circlePaint.setStrokeWidth(circleStrokeWidth);
-        circlePaint.setAntiAlias(true);
-        circlePaint.setStrokeCap(Paint.Cap.ROUND);
-
+        circleActiveIndicatorPaint.setColor(Color.YELLOW);
+        circleActiveIndicatorPaint.setStyle(Paint.Style.STROKE);
+        circleActiveIndicatorPaint.setStrokeWidth(circleStrokeWidth);
+        circleActiveIndicatorPaint.setAntiAlias(true);
+        circleActiveIndicatorPaint.setStrokeCap(Paint.Cap.ROUND);
     }
 
     @SuppressWarnings("SuspiciousNameCombination")
@@ -47,10 +45,10 @@ public class SimpleCircleProgressBar extends View {
 
         // draw active circle indicator
         canvas.save();
-        canvas.rotate(-90, getWidth() / 2, getHeight() / 2);
+        rotateCanvasForCircleIndicator(canvas, CIRCLE_INDICATOR_BOTTOM);
         circleRectF.set(circleStrokeWidth, circleStrokeWidth,
                 getWidth() - circleStrokeWidth, getHeight() - circleStrokeWidth);
-        canvas.drawArc(circleRectF, 0, 111, false, circlePaint);
+        canvas.drawArc(circleRectF, 0, 275, false, circleActiveIndicatorPaint);
         canvas.restore();
     }
 }
