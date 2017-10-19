@@ -2,6 +2,8 @@ package com.shevart.circleviews.utils;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.os.Build;
+import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.util.DisplayMetrics;
 
@@ -38,5 +40,13 @@ public class UiUtil {
         DisplayMetrics metrics = resources.getDisplayMetrics();
         float dp = px / ((float)metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
         return dp;
+    }
+
+    public static int getColor(@NonNull Context context, @ColorRes int colorResId) {
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP) {
+            return context.getResources().getColor(colorResId);
+        } else {
+            return context.getResources().getColor(colorResId, null);
+        }
     }
 }
