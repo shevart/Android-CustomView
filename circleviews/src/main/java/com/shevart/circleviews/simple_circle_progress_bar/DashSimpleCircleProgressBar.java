@@ -5,7 +5,13 @@ import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 
+import com.shevart.circleviews.utils.UiUtil;
+
+@SuppressWarnings("unused")
 public class DashSimpleCircleProgressBar extends SimpleCircleProgressBar {
+    private float activeCircleDashSectionWidth;
+    private float activeCircleDashSpaceWidth;
+
     public DashSimpleCircleProgressBar(Context context) {
         super(context);
     }
@@ -21,7 +27,33 @@ public class DashSimpleCircleProgressBar extends SimpleCircleProgressBar {
     @Override
     protected void init() {
         super.init();
-        circleActiveIndicatorPaint.setStrokeCap(Paint.Cap.SQUARE);
-        circleActiveIndicatorPaint.setPathEffect(new DashPathEffect(new float[]{5, 15}, 5));
+        activeCircleDashSectionWidth = UiUtil.convertDpToPixel(1, getContext());
+        activeCircleDashSpaceWidth = UiUtil.convertDpToPixel(3, getContext());
+        initDashEffect();
+    }
+
+    private void initDashEffect() {
+        circleActiveIndicatorPaint.setStrokeCap(Paint.Cap.BUTT);
+        circleActiveIndicatorPaint.setPathEffect(
+                new DashPathEffect(new float[]{activeCircleDashSectionWidth, activeCircleDashSpaceWidth}, 1));
+        invalidate();
+    }
+
+    public float getActiveCircleDashSectionWidth() {
+        return activeCircleDashSectionWidth;
+    }
+
+    public void setActiveCircleDashSectionWidth(float activeCircleDashSectionWidth) {
+        this.activeCircleDashSectionWidth = activeCircleDashSectionWidth;
+        initDashEffect();
+    }
+
+    public float getActiveCircleDashSpaceWidth() {
+        return activeCircleDashSpaceWidth;
+    }
+
+    public void setActiveCircleDashSpaceWidth(float activeCircleDashSpaceWidth) {
+        this.activeCircleDashSpaceWidth = activeCircleDashSpaceWidth;
+        initDashEffect();
     }
 }
