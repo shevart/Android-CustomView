@@ -22,7 +22,7 @@ public class SimpleCircleProgressBar extends BaseCircleView {
     private float activeCircleStrokeWidth;
     private float substrateCircleStrokeWidth;
     private boolean drawSubstrate = true;
-    private int currentValue = 100;
+    private int currentValue = 25;
 
     public SimpleCircleProgressBar(Context context) {
         super(context);
@@ -60,23 +60,22 @@ public class SimpleCircleProgressBar extends BaseCircleView {
     @SuppressWarnings("SuspiciousNameCombination")
     @Override
     protected void onDraw(Canvas canvas) {
+        final float minSideSize = getMinSideSize();
         if (drawSubstrate) {
             // set circles rectF for substrate circle
             circleRectF.set(substrateCircleStrokeWidth, substrateCircleStrokeWidth,
-                    getWidth() - substrateCircleStrokeWidth, getHeight() - substrateCircleStrokeWidth);
+                    minSideSize - substrateCircleStrokeWidth, minSideSize - substrateCircleStrokeWidth);
             // draw substrate circle
             canvas.drawArc(circleRectF, 0, 360, false, circleIndicatorSubstratePaint);
         }
 
         // set circles rectF for active circle
         circleRectF.set(activeCircleStrokeWidth, activeCircleStrokeWidth,
-                getWidth() - activeCircleStrokeWidth, getHeight() - activeCircleStrokeWidth);
+                minSideSize - activeCircleStrokeWidth, minSideSize - activeCircleStrokeWidth);
         // draw active circle indicator
-        canvas.save();
-        rotateCanvasForCircleIndicator(canvas, circleIndicatorStart);
-        canvas.drawArc(circleRectF, 0, calculateDegreesForArc(MAX_VALUE, currentValue), false,
+        canvas.drawArc(circleRectF, getStartAngleByCircleIndicatorStart(circleIndicatorStart),
+                calculateDegreesForArc(MAX_VALUE, currentValue), false,
                 circleActiveIndicatorPaint);
-        canvas.restore();
     }
 
     public float getActiveCircleStrokeWidth() {

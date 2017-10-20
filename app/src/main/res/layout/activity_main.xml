@@ -16,6 +16,6 @@
 
     <com.shevart.circleviews.simple_circle_progress_bar.DashSimpleCircleProgressBar
         android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
         android:layout_marginTop="32dp" />
 </LinearLayout>

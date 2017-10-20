@@ -55,6 +55,10 @@ public abstract class BaseCircleView extends View {
         invalidate(); // review it
     }
 
+    protected int getStartAngleByCircleIndicatorStart(@CircleIndicatorStart int cis) {
+        return getCanvasRotateDegreeByCircleIndicatorStart(cis);
+    }
+
     protected int getCanvasRotateDegreeByCircleIndicatorStart(@CircleIndicatorStart int cis) {
         switch (cis) {
             case CIRCLE_INDICATOR_TOP:
@@ -81,5 +85,13 @@ public abstract class BaseCircleView extends View {
     protected float calculateDegreesForArc(float maxValue, float currentValue) {
         float degrees = (360f / maxValue * currentValue);
         return degrees;
+    }
+
+    /***
+     * Use this method for determine minimal size of view sides.
+     * @return minimal side size (width or height)
+     */
+    protected float getMinSideSize() {
+        return getWidth() < getHeight() ? getWidth() : getHeight();
     }
 }
