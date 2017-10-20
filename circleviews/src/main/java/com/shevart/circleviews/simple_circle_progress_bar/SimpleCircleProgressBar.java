@@ -15,7 +15,6 @@ import com.shevart.circleviews.utils.UiUtil;
 
 @SuppressWarnings("unused")
 public class SimpleCircleProgressBar extends BaseCircleView {
-    private static final int MAX_VALUE = 100;
     private RectF circleRectF;
     private Paint circleIndicatorSubstratePaint;
     protected Paint circleActiveIndicatorPaint;

@@ -13,6 +13,7 @@ import java.lang.annotation.RetentionPolicy;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
 public abstract class BaseCircleView extends View {
+    protected static final int MAX_VALUE = 100;
     public static final int CIRCLE_INDICATOR_TOP = 1;
     public static final int CIRCLE_INDICATOR_RIGHT = 2;
     public static final int CIRCLE_INDICATOR_BOTTOM = 3;
