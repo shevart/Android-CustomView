@@ -53,7 +53,7 @@ public abstract class BaseCircleView extends View {
 
     public void setCircleIndicatorStart(@CircleIndicatorStart int circleIndicatorStart) {
         this.circleIndicatorStart = circleIndicatorStart;
-        invalidate(); // review it
+        invalidate();
     }
 
     protected int getStartAngleByCircleIndicatorStart(@CircleIndicatorStart int cis) {

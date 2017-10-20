@@ -112,8 +112,8 @@ public class TripleCircleProgressBar extends BaseCircleView {
         canvas.drawArc(circleRectF, getStartAngleByCircleIndicatorStart(circleIndicatorStart),
                 calculateDegreesForArc(MAX_VALUE, middleCircleValue), false, middleCirclePaint);
 
-
         // --- draw bottom circle
+
         // set rectF for top circle
         float bottomCirclePadding = circleWidth * 3 + circlePadding * 2;
         circleRectF.set(bottomCirclePadding, bottomCirclePadding,
