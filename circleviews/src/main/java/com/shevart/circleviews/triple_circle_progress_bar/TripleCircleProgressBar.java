@@ -48,12 +48,12 @@ public class TripleCircleProgressBar extends BaseCircleView {
     @Override
     protected void init() {
         super.init();
-        circleWidth = UiUtil.convertDpToPixel(10, getContext());
+        circleWidth = UiUtil.convertDpToPixel(12, getContext());
         circlePadding = UiUtil.convertDpToPixel(1.5f, getContext());
 
         topCircleColor = Color.GREEN;
         topSubstrateCircleColor = Color.GRAY;
-        middleCircleColor = Color.GREEN;
+        middleCircleColor = Color.YELLOW;
         middleSubstrateCircleColor = Color.GRAY;
         bottomCircleColor = Color.RED;
         bottomSubstrateCircleColor = Color.GRAY;
