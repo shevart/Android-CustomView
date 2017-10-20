@@ -254,4 +254,20 @@ public class TripleCircleProgressBar extends BaseCircleView {
         this.bottomSubstrateCircleColor = bottomSubstrateCircleColor;
         invalidate();
     }
+
+    public void setActiveCirclesColors(int topCircleColor, int middleCircleColor, int bottomCircleColor) {
+        this.topCircleColor = topCircleColor;
+        this.middleCircleColor = middleCircleColor;
+        this.bottomCircleColor = bottomCircleColor;
+        invalidate();
+    }
+
+    public void setSubstrateCirclesColors(int topSubstrateCircleColor,
+                                          int middleSubstrateCircleColor,
+                                          int bottomSubstrateCircleColor) {
+        this.topSubstrateCircleColor = topSubstrateCircleColor;
+        this.middleSubstrateCircleColor = middleSubstrateCircleColor;
+        this.bottomSubstrateCircleColor = bottomSubstrateCircleColor;
+        invalidate();
+    }
 }
