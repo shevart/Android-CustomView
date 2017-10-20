@@ -29,9 +29,9 @@ public class TripleCircleProgressBar extends BaseCircleView {
     private int bottomSubstrateCircleColor;
     private boolean drawSubstrate = true;
 
-    private int topCircleValue = 78;
-    private int middleCircleValue = 40;
-    private int bottomCircleValue = 23;
+    private int topCircleValue = 75;
+    private int middleCircleValue = 45;
+    private int bottomCircleValue = 25;
 
     public TripleCircleProgressBar(Context context) {
         super(context);
@@ -51,11 +51,11 @@ public class TripleCircleProgressBar extends BaseCircleView {
         circleWidth = UiUtil.convertDpToPixel(10, getContext());
         circlePadding = UiUtil.convertDpToPixel(1.5f, getContext());
 
-        topCircleColor = Color.RED;
+        topCircleColor = Color.GREEN;
         topSubstrateCircleColor = Color.GRAY;
         middleCircleColor = Color.GREEN;
         middleSubstrateCircleColor = Color.GRAY;
-        bottomCircleColor = Color.YELLOW;
+        bottomCircleColor = Color.RED;
         bottomSubstrateCircleColor = Color.GRAY;
 
         circleRectF = new RectF();
