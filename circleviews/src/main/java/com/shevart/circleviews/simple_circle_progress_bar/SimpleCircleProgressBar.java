@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
+import android.support.annotation.IntRange;
 import android.util.AttributeSet;
 
 import com.shevart.circleviews.BaseCircleView;
@@ -14,12 +15,14 @@ import com.shevart.circleviews.utils.UiUtil;
 
 @SuppressWarnings("unused")
 public class SimpleCircleProgressBar extends BaseCircleView {
+    private static final int MAX_VALUE = 100;
     private RectF circleRectF;
     private Paint circleIndicatorSubstratePaint;
     protected Paint circleActiveIndicatorPaint;
     private float activeCircleStrokeWidth;
     private float substrateCircleStrokeWidth;
     private boolean drawSubstrate = true;
+    private int currentValue = 100;
 
     public SimpleCircleProgressBar(Context context) {
         super(context);
@@ -71,7 +74,8 @@ public class SimpleCircleProgressBar extends BaseCircleView {
         // draw active circle indicator
         canvas.save();
         rotateCanvasForCircleIndicator(canvas, circleIndicatorStart);
-        canvas.drawArc(circleRectF, 0, calculateDegreesForArc(100, 75), false, circleActiveIndicatorPaint);
+        canvas.drawArc(circleRectF, 0, calculateDegreesForArc(MAX_VALUE, currentValue), false,
+                circleActiveIndicatorPaint);
         canvas.restore();
     }
 
@@ -118,6 +122,15 @@ public class SimpleCircleProgressBar extends BaseCircleView {
 
     public void setActiveCircleColor(@ColorRes int colorResId) {
         circleActiveIndicatorPaint.setColor(UiUtil.getColor(getContext(), colorResId));
+        invalidate();
+    }
+
+    public int getCurrentValue() {
+        return currentValue;
+    }
+
+    public void setCurrentValue(@IntRange(from = 0, to = MAX_VALUE) int currentValue) {
+        this.currentValue = currentValue;
         invalidate();
     }
 }
