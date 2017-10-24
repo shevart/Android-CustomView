@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.shevart.customview.R;
+import com.shevart.customview.utils.FragmentUtil;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bnvMain;
@@ -15,7 +16,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //noinspection ConstantConditions
+        getSupportActionBar().hide();
 
+        initViews();
+        showViews();
+    }
+
+    private void initViews() {
         bnvMain = findViewById(R.id.bnvMain);
         bnvMain.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -35,10 +43,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showViews() {
-
+        FragmentUtil.replaceFragment(getSupportFragmentManager(),
+                new MainViewsListFragment(),
+                R.id.flMainContainer);
     }
 
     private void showAboutMe() {
-
+        FragmentUtil.replaceFragment(getSupportFragmentManager(),
+                new AboutMeFragment(),
+                R.id.flMainContainer);
     }
 }
