@@ -2,9 +2,8 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#f7de10</color>
     <color name="background">#364146</color>
-
 
     <color name="user_progress_circle_grey">#5b6a71</color>
     <color name="user_progress_circle_start_color">#f55883</color>

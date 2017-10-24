@@ -1,5 +1,6 @@
 package com.shevart.customview.screens.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -7,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.shevart.customview.R;
+import com.shevart.customview.screens.circleviewstopic.CircleViewsTopicDemoActivity;
 import com.shevart.customview.screens.main.aboutme.AboutMeFragment;
 import com.shevart.customview.screens.main.mainviewslist.MainViewsListFragment;
 import com.shevart.customview.utils.FragmentUtil;
@@ -23,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
         initViews();
         showViews();
+
+        // todo remove after test
+        startActivity(new Intent(this, CircleViewsTopicDemoActivity.class));
     }
 
     private void initViews() {

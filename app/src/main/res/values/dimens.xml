@@ -12,4 +12,6 @@
 
     <dimen name="rating_star_width">22dp</dimen>
     <dimen name="rating_star_padding">20dp</dimen>
+    <dimen name="double_dimen">16dp</dimen>
+    <dimen name="demo_views_side_size">200dp</dimen>
 </resources>
