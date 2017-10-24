@@ -8,7 +8,7 @@
     android:background="@drawable/main_bg"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context="com.shevart.customview.screens.MainActivity">
+    tools:context="com.shevart.customview.screens.main.MainActivity">
 
     <FrameLayout
         android:id="@+id/flMainContainer"

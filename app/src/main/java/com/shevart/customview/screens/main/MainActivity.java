@@ -1,4 +1,4 @@
-package com.shevart.customview.screens;
+package com.shevart.customview.screens.main;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.shevart.customview.R;
+import com.shevart.customview.screens.main.aboutme.AboutMeFragment;
+import com.shevart.customview.screens.main.mainviewslist.MainViewsListFragment;
 import com.shevart.customview.utils.FragmentUtil;
 
 public class MainActivity extends AppCompatActivity {
