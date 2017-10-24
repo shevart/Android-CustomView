@@ -115,7 +115,7 @@ public class TripleCircleProgressBar extends BaseCircleView {
         // --- draw bottom circle
 
         // set rectF for top circle
-        float bottomCirclePadding = circleWidth * 3 + circlePadding * 2;
+        final float bottomCirclePadding = circleWidth * 3 + circlePadding * 2;
         circleRectF.set(bottomCirclePadding, bottomCirclePadding,
                 minSideSize - bottomCirclePadding, minSideSize - bottomCirclePadding);
         // draw substrate circle if need
