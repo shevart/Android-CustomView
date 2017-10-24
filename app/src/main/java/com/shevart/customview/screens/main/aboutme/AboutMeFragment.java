@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import com.shevart.customview.R;
 
 public class AboutMeFragment extends Fragment {
-
     public AboutMeFragment() {
     }
 
