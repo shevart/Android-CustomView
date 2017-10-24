@@ -53,8 +53,17 @@ public abstract class BaseRVAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         if (position == 0 && !TextUtils.isEmpty(title)) {
             return TITLE_ITEM_VIEW_TYPE;
         }
-        
+
         throw new IllegalArgumentException("Handle it!");
+    }
+
+    @Nullable
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(@Nullable String title) {
+        this.title = title;
     }
 
     private void bindTitle(@NonNull TitleViewHolder viewHolder, @NonNull String title) {
@@ -62,11 +71,11 @@ public abstract class BaseRVAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     }
 
     private static class TitleViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTitle;
+        final TextView tvTitle;
 
         TitleViewHolder(View itemView) {
             super(itemView);
-            itemView = itemView.findViewById(R.id.tvTitle);
+            tvTitle = itemView.findViewById(R.id.tvTitle);
         }
     }
 }

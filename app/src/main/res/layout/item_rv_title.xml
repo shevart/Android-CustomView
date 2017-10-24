@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/tvTitle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" />
+    android:fontFamily="sans-serif-medium"
+    android:paddingBottom="16dp"
+    android:paddingEnd="24dp"
+    android:paddingStart="24dp"
+    android:paddingTop="16dp"
+    android:textColor="@android:color/black"
+    android:textSize="25sp"
+    android:textStyle="bold"
+    android:orientation="vertical"
+    tools:text="@string/app_name" />

@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 
 import com.shevart.customview.screens.common.BaseRVAdapter;
 
-public class MainViewsRVAdapter extends BaseRVAdapter {
+class MainViewsRVAdapter extends BaseRVAdapter {
 
     @Override
     protected int getChildAdapterItemsCount() {
@@ -14,12 +14,19 @@ public class MainViewsRVAdapter extends BaseRVAdapter {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+        switch (viewType) {
+
+            default:
+                return super.onCreateViewHolder(parent, viewType);
+        }
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        switch (getItemViewType(position)) {
 
+            default:
+                super.onBindViewHolder(holder, position);
+        }
     }
-
 }
