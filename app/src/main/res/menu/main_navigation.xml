@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_views"
+        android:icon="@drawable/wrapper_ic_whatshot_black"
+        android:title="@string/views" />
+    <item
+        android:id="@+id/action_about_me"
+        android:icon="@drawable/wrapper_ic_mood_black"
+        android:title="@string/about_me" />
+</menu>
